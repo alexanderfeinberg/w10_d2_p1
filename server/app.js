@@ -7,13 +7,20 @@ app.use('/', (req, res, next) => {
   const error = new Error('First');
   next(error);
 });
+//console log "First", then catch the "First error" and sole log "fifth" then console log "eight" and send plain text message
 
 // Second
 app.use((req, res, next) => {
   console.log('Second');
   next();
 });
+/*
+console log first, then console log fifth,then console
+log sixth then
+send plain text message then console log seventh
 
+
+*/
 // Third
 app.get('/other-resource', (req, res, next) => {
   console.log('Third');
@@ -21,6 +28,13 @@ app.get('/other-resource', (req, res, next) => {
 }, (req, res, next) => {
   res.send('Message');
 });
+
+/*
+console log first then fifth then sevent and send plain
+text message
+
+
+*/
 
 // Fourth
 const fourth = (req, res, next) => {
